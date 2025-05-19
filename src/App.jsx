@@ -24,10 +24,12 @@ function getPreperedGoods(goods, sortField, isReversed) {
 
   switch (sortField) {
     case SORT_FIELD_ALPHABET:
-      return preperedGoods.sort((a, b) => a.localeCompare(b));
+      preperedGoods.sort((a, b) => a.localeCompare(b));
+      break;
 
     case SORT_FIELD_LENGTH:
-      return preperedGoods.sort((a, b) => a.length - b.length);
+      preperedGoods.sort((a, b) => a.length - b.length);
+      break;
 
     default:
       break;
@@ -44,7 +46,7 @@ export const App = () => {
   const [sortField, setSortField] = useState('');
   const [isReversed, setIsReversed] = useState(false);
   const visibleGoods = getPreperedGoods(goodsFromServer, sortField, isReversed);
-  const IS_SORTED = sortField || isReversed;
+  const isSorted = sortField || isReversed;
 
   return (
     <div className="section content">
@@ -79,7 +81,7 @@ export const App = () => {
           Reverse
         </button>
 
-        {IS_SORTED && (
+        {isSorted && (
           <button
             type="button"
             className="button is-danger is-light"
