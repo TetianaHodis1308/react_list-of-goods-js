@@ -24,12 +24,10 @@ function getPreperedGoods(goods, sortField, isReversed) {
 
   switch (sortField) {
     case SORT_FIELD_ALPHABET:
-      preperedGoods.sort((a, b) => a.localeCompare(b));
-      break;
+      return preperedGoods.sort((a, b) => a.localeCompare(b));
 
     case SORT_FIELD_LENGTH:
-      preperedGoods.sort((a, b) => a.length - b.length);
-      break;
+      return preperedGoods.sort((a, b) => a.length - b.length);
 
     default:
       break;
